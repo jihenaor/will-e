@@ -10,7 +10,7 @@ interface Route {
 }
 
 const votopreferente = lazy(() => import('../votopreferente/pages/VotoPreferentePage'));
-const Lazy2 = lazy(() => import(/* webpackChunkName: "LazyPage2" */ '../01-lazyload/pages/LazyPage2'));
+
 const Lazy3 = lazy(() => import(/* webpackChunkName: "LazyPage3" */ '../01-lazyload/pages/LazyPage3'));
 
 export const routes: Route[] = [
@@ -19,12 +19,6 @@ export const routes: Route[] = [
         path: 'votopreferente',
         Component: votopreferente,
         name: 'Voto preferente'
-    },
-    {
-        to: '/lazy2',
-        path: 'lazy2',
-        Component: Lazy2,
-        name: 'Lazy-2'
     },
     {
         to: '/lazy3',
