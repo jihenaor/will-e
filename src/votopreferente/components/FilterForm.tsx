@@ -1,5 +1,5 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import React, { useEffect, useRef } from 'react';
+import { Formik, Field, Form, ErrorMessage, useFormikContext } from 'formik';
 import * as Yup from 'yup';
 
 import FilterInterface from '../interfaces/filterInterface';
@@ -9,16 +9,18 @@ import '../styles/styles.css';
 
 interface FormProps {
   onSubmit: (values: FilterInterface) => void;
+  initialZona: string;
 }
 
-const FilterForm: React.FC<FormProps> = ({ onSubmit }) => {
+const FilterForm: React.FC<FormProps> = ({ onSubmit, initialZona  }) => {
 
   return (
     <div>
 
         <Formik
+            enableReinitialize={true}        
             initialValues = {{
-                zona: '',
+                zona: initialZona,
                 puesto: '',
                 mesa: '',
             }}
@@ -33,7 +35,7 @@ const FilterForm: React.FC<FormProps> = ({ onSubmit }) => {
                                 .max(3, 'Debe de tener 3 caracteres o menos')
                                 .required('Requerido'),
                     mesa: Yup.string()
-                                .max(2, 'El correo no tiene un formato válido')
+                                .max(3, 'La mesa no tiene el formato valido')
                                 .required('Requerido'),
                 })
             }>
@@ -51,7 +53,7 @@ const FilterForm: React.FC<FormProps> = ({ onSubmit }) => {
                     <Field name="mesa" type="text" />
                     <ErrorMessage name="mesa" component="span" />
         
-                    <button type="submit">Submit</button>
+                    <button type="submit">Buscar</button>
                 </Form>
                 )
             }

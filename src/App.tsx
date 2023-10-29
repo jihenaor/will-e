@@ -1,9 +1,12 @@
 import { Navigation } from './routes/Navigation';
+import { AppTheme } from './theme';
 
 function App() {
   return (
     <>
-      <Navigation />
+      <AppTheme>
+        <Navigation />
+      </AppTheme>
     </>
   );
 }

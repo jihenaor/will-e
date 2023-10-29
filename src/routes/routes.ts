@@ -10,8 +10,8 @@ interface Route {
 }
 
 const votopreferente = lazy(() => import('../votopreferente/pages/VotoPreferentePage'));
-
-const Lazy3 = lazy(() => import(/* webpackChunkName: "LazyPage3" */ '../01-lazyload/pages/LazyPage3'));
+const login = lazy(() => import('../auth/pages/LoginFirebasePage'));
+const loginOut = lazy(() => import('../auth/pages/LoginOutPage'));
 
 export const routes: Route[] = [
     {
@@ -20,10 +20,19 @@ export const routes: Route[] = [
         Component: votopreferente,
         name: 'Voto preferente'
     },
+
     {
-        to: '/lazy3',
-        path: 'lazy3',
-        Component: Lazy3,
-        name: 'Lazy-3'
+        to: '/auth',
+        path: 'auth',
+        Component: login,
+        name: 'Login'
     },
+
+    {
+        to: '/loginout',
+        path: 'loginout',
+        Component: loginOut,
+        name: 'Login Out'
+    },
+
 ];
