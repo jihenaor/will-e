@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkelecciones=self.webpackChunkelecciones||[]).push([[217],{6217:function(e,n,u){u.r(n),u.d(n,{LoginOutPage:function(){return i}});var c=u(9434),t=u(1286),r=u(184),i=function(){return(0,c.I0)()((0,t.k_)()),(0,r.jsx)(r.Fragment,{children:"Logout"})};n.default=i}}]);
+//# sourceMappingURL=217.5b805a37.chunk.js.map
