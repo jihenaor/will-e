@@ -1,25 +1,118 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura de la columna al 100% del alto de la ventana */
+}
+
+.top-row {
+  flex: 1; /* La primera fila ocupará la mitad del espacio vertical disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-row {
+  flex: 1; /* La segunda fila ocupará la mitad del espacio vertical disponible */
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos para FilterForm */
+.filter-form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+/* Estilos para FileUpload */
+.file-upload {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+/* Otros estilos según sea necesario */
+
+
 form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 400px;
+  }
+  
+  .form-row {
     display: flex;
     flex-direction: column;
-    width: 400px;
-}
-
-input, select {
-    margin-top: 5px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select {
     outline: none;
     padding: 10px;
-}
-
-
-button {
+    max-width: 8em; 
+  }
+  
+  button {
     margin-top: 20px;
     padding: 10px;
-}
-
-span, .error-message {
+  }
+  
+  span,
+  .error-message {
     color: red;
+  }
+  
+  .has-error {
+    border: 1px solid red;
+  }
+  
+/* Clase para el contenedor principal */
+.upload {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
 }
 
-.has-error {
-    border: 1px solid red;
+/* Clase para el botón de carga */
+.upload-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Clase para el mensaje de progreso */
+.progress-message {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Clase para el enlace de descarga */
+.download-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+
+/* Clase CSS para alinear el contenido en la parte superior */
+.vertical-align-top {
+  vertical-align: top;
 }

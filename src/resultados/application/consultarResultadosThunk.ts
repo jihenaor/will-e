@@ -3,9 +3,9 @@ import { Dispatch } from 'redux';
 import { loadResultados } from '../infraestructure/loadResultados';
 
 
-export const consultarResultados = async (dispatch: Dispatch, zona: string, puesto: string, mesa: string) => {
+export const consultarResultados = async (dispatch: Dispatch) => {
     try {
-        const resultados = await loadResultados(zona, puesto, mesa);
+        const resultados = await loadResultados();
 
         dispatch(setResultados(resultados));
       } catch (error) {

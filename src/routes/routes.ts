@@ -10,6 +10,7 @@ interface Route {
 }
 
 const votopreferente = lazy(() => import('../votopreferente/pages/VotoPreferentePage'));
+const resultados = lazy(() => import('../resultados/pages/ResultadosPage'));
 const login = lazy(() => import('../auth/pages/LoginFirebasePage'));
 const loginOut = lazy(() => import('../auth/pages/LoginOutPage'));
 
@@ -19,6 +20,13 @@ export const routes: Route[] = [
         path: 'votopreferente',
         Component: votopreferente,
         name: 'Voto preferente'
+    },
+
+    {
+        to: '/resultados',
+        path: 'resultados',
+        Component: resultados,
+        name: 'Resultados'
     },
 
     {

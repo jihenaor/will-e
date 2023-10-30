@@ -10,9 +10,10 @@ import CandidatosEditable from '../components/CandidatosEditable';
 import { useEffect, useState } from 'react';
 
 import { Candidato } from '../../candidatos/domain/candidato.interface';
-import { consultarResultados } from '../../resultados/application/consultarResultadosThunk';
+import { consultarResultadosZona } from '../../resultados/application/consultarResultadosZonaThunk';
 import { Resultado } from '../../resultados/domain/resultado.interface';
 import { updateResultado } from '../../resultados/domain/updateResultadoThuks';
+import FileUpload from '../components/FileUpload';
 
 const VotoPreferentePage = () => {
   const dispatch = useDispatch();
@@ -96,7 +97,7 @@ const VotoPreferentePage = () => {
       return;
     }
     setCandidatosSelected([])
-    consultarResultados(dispatch, values.zona, values.puesto, values.mesa);
+    consultarResultadosZona(dispatch, values.zona, values.puesto, values.mesa);
 
     console.log('Form submitted with values:', values);
   };
@@ -112,23 +113,37 @@ const VotoPreferentePage = () => {
 
   return (
     <div>
-      <Typography variant='h4'>Voto preferente</Typography>
-      {
-        (zona && zona.length > 0 ) ?
-        <></>
-        :
-        <FilterForm onSubmit={handleFormSubmit} initialZona={ zona } />
-      }
+      <Typography variant='h4'>Capturar votos</Typography>
+        {
+          (zona && zona.length > 0 ) ?
+          <></>
+          :
+          <FilterForm onSubmit={handleFormSubmit} initialZona={ zona } />
+        }
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              {
+                (zona && zona.length > 0 && candidatosSelected.length > 0) ?
+                <CandidatosEditable candidatos={candidatosSelected} onSave={handleSaveData} onCancel={ handleCancel }/>
+                :
+                <></>
+              }
+            </td>
+            <td  className="vertical-align-top">
+            {
+                (zona && zona.length > 0 ) ?
+                <FileUpload zona={zona} puesto={puesto} mesa={mesa} />
+                :
+                  <></>
+              }
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-      {zona}
-      - { candidatosSelected.length }
-      - r: { resultados.length }
-      {
-        (zona && zona.length > 0 && candidatosSelected.length > 0) ?
-        <CandidatosEditable candidatos={candidatosSelected} onSave={handleSaveData} onCancel={ handleCancel }/>
-        :
-        <></>
-      }
+
     </div>
   );
 };

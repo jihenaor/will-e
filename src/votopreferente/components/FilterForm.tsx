@@ -41,19 +41,27 @@ const FilterForm: React.FC<FormProps> = ({ onSubmit, initialZona  }) => {
             }>
             {(formik) => (
                 <Form>
-                    <label htmlFor="zona">Zona</label>
-                    <Field name="zona" type="text" />
-                    <ErrorMessage name="zona" component="span" />
-        
-                    <label htmlFor="puesto">Puesto</label>
-                    <Field name="puesto" type="text" />
-                    <ErrorMessage name="puesto" component="span" />
-        
-                    <label htmlFor="mesa">Mesa</label>
-                    <Field name="mesa" type="text" />
-                    <ErrorMessage name="mesa" component="span" />
-        
+                    <div className="form-row">
+                        <label htmlFor="zona">Zona</label>
+                        <Field name="zona" type="text" />
+                        <ErrorMessage name="zona" component="span" />
+                    </div>
+
+                    <div className="form-row">
+                        <label htmlFor="puesto">Puesto</label>
+                        <Field name="puesto" type="text" />
+                        <ErrorMessage name="puesto" component="span" />
+                    </div>
+
+                    <div className="form-row">
+                        <label htmlFor="mesa">Mesa</label>
+                        <Field name="mesa" type="text" />
+                        <ErrorMessage name="mesa" component="span" />
+                    </div>
+
+                    <div className="form-row">
                     <button type="submit">Buscar</button>
+                    </div>
                 </Form>
                 )
             }

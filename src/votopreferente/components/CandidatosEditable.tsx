@@ -37,8 +37,6 @@ const CandidatosEditable: React.FC<EditableListProps> = ({ candidatos: data, onS
     setEditedData(data)
   }, [data]);
 
-  
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, id: string) => {
     const { name, value } = event.target;
     const updatedData = editedData.map((item) =>
